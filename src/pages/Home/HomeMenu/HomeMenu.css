@@ -1,0 +1,19 @@
+.imageHome:hover {
+  box-shadow: 0 0 2px 1px rgba(6, 25, 31, 0.5);
+}
+
+.text-full {
+  text-align: justify;
+  width: 100%;
+}
+
+.text-full:hover hr {
+  border-color: #746262;
+  border: 2px solid #746262;
+}
+
+.border-under {
+  border-bottom: 10px solid green;
+  border-radius: 5px;
+  margin: auto;
+}

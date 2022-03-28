@@ -1,0 +1,28 @@
+.slick-prev:before,
+.slick-next:before {
+  color: gray !important;
+  font-size: 3rem !important;
+}
+
+.width-item {
+  width: 100% !important;
+}
+
+body > iframe {
+  display: none !important;
+}
+
+.active_Film {
+  @apply bg-neutral-900	 text-white;
+}
+
+.none_active_Film {
+  @apply bg-white text-gray-800;
+}
+
+.active_FilmDC {
+  @apply bg-neutral-900	 text-white;
+}
+.none_active_FilmDC {
+  @apply bg-white text-gray-800;
+}

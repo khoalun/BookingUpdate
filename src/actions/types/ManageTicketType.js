@@ -1,0 +1,8 @@
+export const SET_DETAIL_TICKET = 'SET_DETAIL_TICKET'
+
+export const BOOK_SEAT = 'BOOK_SEAT'
+
+export const FINISH_BOOKING = 'FINISH_BOOKING'
+
+
+export const CHANGE_TAB = 'CHANGE_TAB'
