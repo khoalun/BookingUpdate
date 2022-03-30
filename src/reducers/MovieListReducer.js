@@ -1,5 +1,6 @@
 import {
   SET_CURRENT_FILM,
+  SET_INFOR_FILM,
   SET_MOVIE_LIST,
   SET_UPCOMING_FILM,
 } from "../actions/types/ManageFilmType";
@@ -27,6 +28,7 @@ const stateDefault = {
   arrFilmDefault: [],
   dangChieu: true,
   sapChieu: true,
+  filmInforAdmin: {},
 };
 
 export const MovieListReducer = (state = stateDefault, action) => {
@@ -36,6 +38,7 @@ export const MovieListReducer = (state = stateDefault, action) => {
       state.arrFilmDefault = state.arrFilm;
       return { ...state };
     }
+
     case SET_CURRENT_FILM: {
       state.dangChieu = !state.dangChieu;
       state.arrFilm = state.arrFilmDefault.filter(
@@ -54,6 +57,10 @@ export const MovieListReducer = (state = stateDefault, action) => {
     }
     case SET_DETAIL_FILM: {
       state.filmDetail = action.filmDetail;
+      return { ...state };
+    }
+    case SET_INFOR_FILM: {
+      state.filmInforAdmin = action.filmInforAdmin;
       return { ...state };
     }
 

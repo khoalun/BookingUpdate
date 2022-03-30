@@ -52,13 +52,13 @@ export default function Dashboard() {
     },
   ];
   const { userAdmin } = useSelector((state) => state.ManageUserReducer);
-
   const dispatch = useDispatch();
   function onChange(pagination, filters, sorter, extra) {
     console.log("params", pagination, filters, sorter, extra);
   }
   useEffect(() => {
     dispatch(getUserAdminAction());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   console.log("use111111r", userAdmin);
   return (

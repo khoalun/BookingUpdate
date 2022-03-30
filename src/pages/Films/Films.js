@@ -95,10 +95,14 @@ export default function Films() {
       render: (text, film) => {
         return (
           <Fragment key={film}>
-            <NavLink className="mr-2 text-2xl" to="/">
+            <NavLink
+              key={1}
+              className="mr-2 text-2xl"
+              to={`/admin/films/edit/${film.maPhim}`}
+            >
               <EditOutlined style={{ color: "blue" }} />
             </NavLink>
-            <NavLink className=" text-2xl" to="/">
+            <NavLink key={2} className=" text-2xl" to="/">
               <DeleteOutlined style={{ color: "red" }} />
             </NavLink>
           </Fragment>

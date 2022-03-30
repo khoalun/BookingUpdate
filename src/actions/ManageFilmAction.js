@@ -1,5 +1,5 @@
 import { manageMovieService } from "../services/ManageMovieService";
-import { SET_MOVIE_LIST } from "./types/ManageFilmType";
+import { SET_INFOR_FILM, SET_MOVIE_LIST } from "./types/ManageFilmType";
 
 export const getFilmAction = () => {
   return async (dispatch) => {
@@ -21,6 +21,20 @@ export const addFilmUploadImageAction = (formData) => {
       let result = await manageMovieService.addFilmUploadImage(formData);
       alert("Success add Movie");
       console.log("result", result.data.content);
+    } catch (errors) {
+      console.log(errors.response?.data);
+    }
+  };
+};
+
+export const getInforFilmAction = (maPhim) => {
+  return async (dispatch) => {
+    try {
+      const result = await manageMovieService.getInforFilm(maPhim);
+      dispatch({
+        type: SET_INFOR_FILM,
+        filmInforAdmin: result.data.content,
+      });
     } catch (errors) {
       console.log(errors.response?.data);
     }
