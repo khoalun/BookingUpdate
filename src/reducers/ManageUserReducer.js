@@ -1,6 +1,7 @@
 import {
   LOG_IN_ACTION,
   SET_INFOR_USER_BOOKING,
+  SET_USER_ADMIN,
 } from "../actions/types/ManageUser";
 import { TOKEN, USER_LOGIN } from "../util/settings/config";
 
@@ -11,6 +12,7 @@ if (localStorage.getItem(USER_LOGIN)) {
 const stateDefault = {
   userLogin: user,
   userInfor: {},
+  userAdmin: [],
 };
 
 export const ManageUserReducer = (state = stateDefault, action) => {
@@ -23,6 +25,11 @@ export const ManageUserReducer = (state = stateDefault, action) => {
     }
     case SET_INFOR_USER_BOOKING: {
       state.userInfor = action.userInfor;
+      return { ...state };
+    }
+
+    case SET_USER_ADMIN: {
+      state.userAdmin = action.userAdmin;
       return { ...state };
     }
     default:

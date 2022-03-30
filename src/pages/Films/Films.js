@@ -8,8 +8,9 @@ import {
 } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { getFilmAction } from "../../actions/ManageFilmAction";
-import { uniqueId } from "lodash";
+
 import { NavLink } from "react-router-dom";
+import { history } from "../../App";
 
 export default function Films() {
   const { arrFilmDefault } = useSelector((state) => state.MovieListReducer);
@@ -24,7 +25,7 @@ export default function Films() {
       title: "Id",
       dataIndex: "maPhim",
       value: (text, object) => {
-        return <span key={uniqueId}>{text}</span>;
+        return <span>{text}</span>;
       },
       sorter: (a, b) => a.maPhim - b.maPhim,
       sortDirection: ["descend", "ascend"],
@@ -94,10 +95,10 @@ export default function Films() {
       render: (text, film) => {
         return (
           <Fragment key={film}>
-            <NavLink key={film} className="mr-2 text-2xl" to="/">
+            <NavLink className="mr-2 text-2xl" to="/">
               <EditOutlined style={{ color: "blue" }} />
             </NavLink>
-            <NavLink key={film} className=" text-2xl" to="/">
+            <NavLink className=" text-2xl" to="/">
               <DeleteOutlined style={{ color: "red" }} />
             </NavLink>
           </Fragment>
@@ -116,7 +117,13 @@ export default function Films() {
   return (
     <div>
       <h3 className="text-4xl">Manage Films</h3>
-      <Button>Adding Film</Button>
+      <Button
+        onClick={() => {
+          history.push("/admin/films/addnew");
+        }}
+      >
+        Adding Film
+      </Button>
       <Search
         placeholder="Search here"
         className="mb-5 "

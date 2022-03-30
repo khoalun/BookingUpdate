@@ -5,15 +5,18 @@ export default class ManageUserService extends baseService {
     super();
   }
 
-  getUser = (inforLogin) => {   // get Account and password infor
-    return this.post(`/api/QuanLyNguoiDung/DangNhap` , inforLogin);
+  getUser = (inforLogin) => {
+    // get Account and password infor
+    return this.post(`/api/QuanLyNguoiDung/DangNhap`, inforLogin);
   };
 
   inforUserBooking = () => {
-     return this.post('/api/QuanLyNguoiDung/ThongTinTaiKhoan')
-  }
+    return this.post("/api/QuanLyNguoiDung/ThongTinTaiKhoan");
+  };
 
-
+  getUserAdmin = () => {
+    return this.get(`/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01`);
+  };
 }
 
 export const manageUserService = new ManageUserService();

@@ -18,6 +18,7 @@ import Showtime from "./pages/Showtime/Showtime";
 // import HomeTemplate from "./templates/HomeTemplate/HomeTemplate";
 import Films from "./pages/Films/Films";
 import AdminTemplate from "./templates/AdminTemplate/AdminTemplate";
+import Addnew from "./pages/Films/AddNew/AddNew";
 
 const CheckoutTemplate = lazy(() =>
   import("./templates/CheckoutTemplate/CheckoutTemplate")
@@ -45,9 +46,10 @@ function App() {
           <CheckoutTemplate path="/checkout/:id" exact Component={Checkout} />
           {/* <Route path="/login" component={LoginLazy} /> */}
 
-
+        
         <AdminTemplate path="/admin" exact Component={Dashboard} />
         <AdminTemplate path="/admin/films" exact Component={Films} />
+        <AdminTemplate path="/admin/films/addnew" exact Component={Addnew} />
         <AdminTemplate path="/admin/users" exact Component={Dashboard} />
         <AdminTemplate path="/admin/showtimes" exact Component={Showtime} />
        {/* <AdminTemplate path="/admin/showtimes" exact Component={ShowTime} /> */}

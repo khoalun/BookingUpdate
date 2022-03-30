@@ -13,6 +13,9 @@ export default class ManageMovieService extends baseService {
   getMovieList = () => {
     return this.get(`/api/QuanLyPhim/LayDanhSachPhim?maNhom=${GROUPID}`);
   };
+  addFilmUploadImage = (formData) => {
+    return this.post(`/api/QuanLyPhim/ThemPhimUploadHinh`, formData);
+  };
 }
 
 export const manageMovieService = new ManageMovieService();

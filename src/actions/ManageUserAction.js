@@ -3,6 +3,7 @@ import { manageUserService } from "../services/ManageUser";
 import {
   LOG_IN_ACTION,
   SET_INFOR_USER_BOOKING,
+  SET_USER_ADMIN,
 } from "./types/ManageUser";
 // import axios from 'axios'
 // import { registerStart, registerSuccess, registerFailed } from "../reducers/authSlice";
@@ -39,6 +40,23 @@ export const getUserInforAction = () => {
         });
       }
       console.log("result", result);
+    } catch (error) {
+      console.log("errors", error.response.data);
+    }
+  };
+};
+
+export const getUserAdminAction = () => {
+  return async (dispatch) => {
+    try {
+      const result = await manageUserService.getUserAdmin();
+      if (result.data.statusCode === 200) {
+        dispatch({
+          type: SET_USER_ADMIN, //gửi lên reducer
+          userAdmin: result.data.content,
+        });
+      }
+      console.log("userList", result);
     } catch (error) {
       console.log("errors", error.response.data);
     }

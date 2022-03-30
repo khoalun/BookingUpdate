@@ -14,3 +14,15 @@ export const getFilmAction = () => {
     }
   };
 };
+
+export const addFilmUploadImageAction = (formData) => {
+  return async (dispatch) => {
+    try {
+      let result = await manageMovieService.addFilmUploadImage(formData);
+      alert("Success add Movie");
+      console.log("result", result.data.content);
+    } catch (errors) {
+      console.log(errors.response?.data);
+    }
+  };
+};
