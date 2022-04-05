@@ -23,6 +23,7 @@ const Edit = (props) => {
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
+      maPhim: filmInforAdmin?.maPhim,
       tenPhim: filmInforAdmin?.tenPhim,
       trailer: filmInforAdmin?.trailer,
       moTa: filmInforAdmin?.moTa,
@@ -43,7 +44,10 @@ const Edit = (props) => {
         if (key !== "hinhAnh") {
           formData.append(key, values[key]);
         } else {
-          formData.append("File", values.hinhAnh, values.hinhAnh.name);
+          if (values.hinhAnh !== null) {
+            formData.append("File", values.hinhAnh, values.hinhAnh.name);
+          }
+          // formData.append("File", values.hinhAnh, values.hinhAnh.name);
         }
       }
       // call api to send formData to backend handle
@@ -55,7 +59,7 @@ const Edit = (props) => {
     setComponentSize(size);
   };
   const handleChangeDatePicker = (value) => {
-    console.log("datepickerchange", moment(value).format("DD/MM/YYYY"));
+    // console.log("datepickerchange", moment(value).format("DD/MM/YYYY"));
     let ngayKhoiChieu = moment(value).format("DD/MM/YYYY");
     formik.setFieldValue("ngayKhoiChieu", ngayKhoiChieu);
   };
@@ -138,7 +142,7 @@ const Edit = (props) => {
         <Form.Item label="Day Release">
           <DatePicker
             onChange={handleChangeDatePicker}
-            format={"DD/MM/YYYY"}
+            format="DD/MM/YYYY"
             value={moment(formik.values.ngayKhoiChieu)}
           />
         </Form.Item>
@@ -193,7 +197,7 @@ const Edit = (props) => {
             type="submit"
             className="bg-gray-600 text-white p-2 rounded-lg"
           >
-            Add Film
+            Edit
           </button>
         </Form.Item>
       </Form>

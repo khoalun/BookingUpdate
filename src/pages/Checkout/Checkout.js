@@ -23,7 +23,6 @@ import { history } from "../../App";
 import { USER_LOGIN, TOKEN } from "../../util/settings/config";
 import { NavLink } from "react-router-dom";
 
-
 function Checkout(props) {
   const { userLogin } = useSelector((state) => state.ManageUserReducer);
   const { detailTicket, listSeatChosen } = useSelector(
@@ -33,7 +32,7 @@ function Checkout(props) {
   console.log("listSeatChoosing", listSeatChosen);
   useEffect(() => {
     window.scrollTo(0, 0);
-})
+  });
   // goi Api
   useEffect(() => {
     // Lay id từ Appjs gọi hàm tạo ra 1 async function
@@ -63,7 +62,7 @@ function Checkout(props) {
       }
 
       return (
-        <Fragment key={index} >
+        <Fragment key={index}>
           <button
             disabled={seat?.daDat}
             key={index}
@@ -107,7 +106,6 @@ function Checkout(props) {
   };
 
   return (
-    
     <div className="min-h-screen mt-12">
       <div className="grid grid-cols-12">
         <div className="col-span-9">
@@ -329,54 +327,95 @@ function Checkout(props) {
 
 const { TabPane } = Tabs;
 
-
 /* eslint-disable import/no-anonymous-default-export */
 export default function (props) {
-  const {userLogin} = useSelector(state => state.ManageUserReducer)
+  const { userLogin } = useSelector((state) => state.ManageUserReducer);
   useEffect(() => {
     return () => {
       dispatch({
-        type: 'CHANGE_TAB_ACTIVE',
-        number: '1'
-      })
+        type: "CHANGE_TAB_ACTIVE",
+        number: "1",
+      });
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-  const operations = <Fragment>
-        {!_.isEmpty(userLogin)?  <Fragment>
-          <button onClick={()=>{
-          history.push('/profile')
-        }}>  <div style={{width:50,height:50,display:'flex',justifyContent:'center',alignItems:'center'}} className='rounded-full bg-red-200  ml-5 text-2xl'>
-          {userLogin.taiKhoan.substr(0,1)}</div > Hello ! {userLogin.taiKhoan}</button> <button className='text-blue-800' onClick={(()=>{
+  }, []);
+  const operations = (
+    <Fragment>
+      {!_.isEmpty(userLogin) ? (
+        <Fragment>
+          <button
+            onClick={() => {
+              history.push("/profile");
+            }}
+          >
+            {" "}
+            <div
+              style={{
+                width: 50,
+                height: 50,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              className="rounded-full bg-red-200  ml-5 text-2xl"
+            >
+              {userLogin.taiKhoan.substr(0, 1)}
+            </div>{" "}
+            Hello ! {userLogin.taiKhoan}
+          </button>{" "}
+          <button
+            className="text-blue-800"
+            onClick={() => {
               localStorage.removeItem(USER_LOGIN);
               localStorage.removeItem(TOKEN);
-              history.push('/home');
+              history.push("/home");
               window.location.reload();
-          })}>Sign Out</button></Fragment>: ""}
-  </Fragment>
-  const {tabActive} = useSelector(state=>state.ManageTicketReducer)
+            }}
+          >
+            Sign Out
+          </button>
+        </Fragment>
+      ) : (
+        ""
+      )}
+    </Fragment>
+  );
+  const { tabActive } = useSelector((state) => state.ManageTicketReducer);
 
-  console.log('tabActive', tabActive)
+  console.log("tabActive", tabActive);
   const dispatch = useDispatch();
-   return (
+  return (
     <div className="p-5">
-      <Tabs  tabBarExtraContent={operations} defaultActiveKey="1" activeKey={tabActive} onChange={(key)=> {
-              dispatch({
-                type: 'CHANGE_TAB_ACTIVE',
-                number: key.toString()
-              })
-      }}>
-        <TabPane tab="01 CHOOSE SEAT & CHECKOUT" key="1" 
-        >
+      <Tabs
+        tabBarExtraContent={operations}
+        defaultActiveKey="1"
+        activeKey={tabActive}
+        onChange={(key) => {
+          dispatch({
+            type: "CHANGE_TAB_ACTIVE",
+            number: key.toString(),
+          });
+        }}
+      >
+        <TabPane tab="01 CHOOSE SEAT & CHECKOUT" key="1">
           <Checkout {...props} />
         </TabPane>
-        <TabPane tab="02 RESULT OF CHECKOUT" key="2" 
-        >
+        <TabPane tab="02 RESULT OF CHECKOUT" key="2">
           <ResultCheckout {...props} />
         </TabPane>
-        <TabPane tab={<div className='text-center' style={{marginLeft:10,fontSize:30}}><NavLink to='/'><HomeOutlined  className='p-2 '/></NavLink></div>} key="3" 
-        >
-        </TabPane>
+        <TabPane
+          tab={
+            <div
+              className="text-center"
+              style={{ marginLeft: 10, fontSize: 30 }}
+            >
+              <NavLink to="/">
+                <HomeOutlined className="p-2 " />
+              </NavLink>
+            </div>
+          }
+          key="3"
+        ></TabPane>
       </Tabs>
     </div>
   );
@@ -413,9 +452,22 @@ function ResultCheckout(props) {
                 Day Releases: {moment(ticket.ngayDat).format("hh:mm A ")} - Hour
                 Starts: {moment(ticket.ngayDat).format("DD-MM-YYYY")}
               </p>
-              <p className="text-sm font-bold">Location : {seats.tenHeThongRap}</p>
-              <p className="text-sm font-bold">Cinema: {seats.tenCumRap} - <div>{ticket.danhSachGhe.map((ghe, index) => { return <span className="text-green-500 text-xl mr-2" key={index}> [{ghe.tenGhe}] </span> })}</div>
-                        </p>
+              <p className="text-sm font-bold">
+                Location : {seats.tenHeThongRap}
+              </p>
+              <p className="text-sm font-bold">
+                Cinema: {seats.tenCumRap} -{" "}
+                <div>
+                  {ticket.danhSachGhe.map((ghe, index) => {
+                    return (
+                      <span className="text-green-500 text-xl mr-2" key={index}>
+                        {" "}
+                        [{ghe.tenGhe}]{" "}
+                      </span>
+                    );
+                  })}
+                </div>
+              </p>
             </div>
           </div>
         </div>

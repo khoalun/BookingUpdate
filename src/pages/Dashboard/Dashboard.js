@@ -36,19 +36,24 @@ export default function Dashboard() {
       width: "20%",
     },
     {
-      title: "Address",
-      dataIndex: "address",
-      filters: [
-        {
-          text: "London",
-          value: "London",
-        },
-        {
-          text: "New York",
-          value: "New York",
-        },
-      ],
-      onFilter: (value, record) => record.address.indexOf(value) === 0,
+      title: "Phone Number",
+      dataIndex: "soDt",
+      value: (text, object) => {
+        return <span>{text}</span>;
+      },
+      sorter: (a, b) => a.taiKhoan - b.taiKhoan,
+      sortDirection: ["descend", "ascend"],
+      width: "20%",
+    },
+    {
+      title: "Right",
+      dataIndex: "maLoaiNguoiDung",
+      value: (text, object) => {
+        return <span>{text}</span>;
+      },
+      sorter: (a, b) => a.taiKhoan - b.taiKhoan,
+      sortDirection: ["descend", "ascend"],
+      width: "20%",
     },
   ];
   const { userAdmin } = useSelector((state) => state.ManageUserReducer);

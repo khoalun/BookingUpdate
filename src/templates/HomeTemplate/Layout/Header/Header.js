@@ -119,7 +119,7 @@ export default function Header(props) {
             {renderLogin()}
 
             <Select
-              defaultValue="vi"
+              defaultValue="eng"
               style={{ width: 100 }}
               onChange={handleChange}
             >

@@ -86,9 +86,9 @@ const AdminTemplate = (props) => {
           <Fragment>
             <Layout style={{ minHeight: "100vh" }}>
               <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
-                <div className="logo p-5">
+                <div className="logo p-2 mt-14">
                   <img
-                    src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png"
+                    src="https://c8.alamy.com/comp/RC04FA/old-fashioned-movie-film-camera-logo-design-template-black-and-white-vector-illustration-RC04FA.jpg"
                     alt="..."
                   />
                 </div>

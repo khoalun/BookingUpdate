@@ -125,6 +125,7 @@ export default function Films() {
         onClick={() => {
           history.push("/admin/films/addnew");
         }}
+        className='mb-4'
       >
         Adding Film
       </Button>
