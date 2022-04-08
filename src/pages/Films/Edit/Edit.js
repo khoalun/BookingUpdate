@@ -4,8 +4,8 @@ import { useFormik } from "formik";
 import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  addFilmUploadImageAction,
   getInforFilmAction,
+  updateFilmAction,
 } from "../../../actions/ManageFilmAction";
 import { GROUPID } from "../../../util/settings/config";
 
@@ -51,7 +51,7 @@ const Edit = (props) => {
         }
       }
       // call api to send formData to backend handle
-      dispatch(addFilmUploadImageAction(formData));
+      dispatch(updateFilmAction(formData));
       //   console.log("formData", formData.get("File"));
     },
   });
@@ -73,7 +73,7 @@ const Edit = (props) => {
       formik.setFieldValue(name, value);
     };
   };
-  const handleChangeFile = (e) => {
+  const handleChangeFile = async (e) => {
     // lay file ra tu e
     let file = e.target.files[0];
     if (
@@ -82,6 +82,7 @@ const Edit = (props) => {
       file.type === "image/gif" ||
       file.type === "image/png"
     ) {
+      await formik.setFieldValue("hinhAnh", file);
       console.log("file", file);
       // create object to read file
       let reader = new FileReader();
@@ -90,7 +91,6 @@ const Edit = (props) => {
         // console.log(e.target.result);
         setImgSrc(e.target.result);
       };
-      formik.setFieldValue("hinhAnh", file);
     }
   };
   return (

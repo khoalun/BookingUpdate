@@ -7,7 +7,10 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
-import { getFilmAction } from "../../actions/ManageFilmAction";
+import {
+  deleteFilmAction,
+  getFilmAction,
+} from "../../actions/ManageFilmAction";
 
 import { NavLink } from "react-router-dom";
 import { history } from "../../App";
@@ -102,9 +105,24 @@ export default function Films() {
             >
               <EditOutlined style={{ color: "blue" }} />
             </NavLink>
-            <NavLink key={2} className=" text-2xl" to="/">
+
+            <span
+              key={2}
+              className=" text-2xl"
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                if (
+                  window.confirm(
+                    "Are you sure you want to delete" + film.tenPhim
+                  )
+                ) {
+                  //Call action
+                  dispatch(deleteFilmAction(film.maPhim));
+                }
+              }}
+            >
               <DeleteOutlined style={{ color: "red" }} />
-            </NavLink>
+            </span>
           </Fragment>
         );
       },
@@ -113,7 +131,12 @@ export default function Films() {
     },
   ];
   const data = arrFilmDefault;
-  const onSearch = (value) => console.log(value);
+  const onSearch = (value) => {
+    console.log(value);
+    // Call api to get film list
+    dispatch(getFilmAction(value));
+  };
+
   function onChange(pagination, filters, sorter, extra) {
     console.log("params", pagination, filters, sorter, extra);
   }
@@ -125,7 +148,7 @@ export default function Films() {
         onClick={() => {
           history.push("/admin/films/addnew");
         }}
-        className='mb-4'
+        className="mb-4"
       >
         Adding Film
       </Button>

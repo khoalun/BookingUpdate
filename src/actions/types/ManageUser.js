@@ -2,3 +2,5 @@ export const LOG_IN_ACTION = "LOG_IN_ACTION";
 export const SET_INFOR_USER_BOOKING = "SET_INFOR_USER_BOOKING";
 
 export const SET_USER_ADMIN = "SET_USER_ADMIN";
+
+// export const REGISTER_ACTION = "REGISTER_ACTION";

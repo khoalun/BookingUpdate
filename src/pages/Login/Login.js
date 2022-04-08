@@ -1,13 +1,13 @@
 import { useFormik } from "formik";
 import React from "react";
 import { NavLink } from "react-router-dom";
-import {useDispatch, useSelector} from 'react-redux'
+import { useDispatch, useSelector } from "react-redux";
 import { loginAction } from "../../actions/ManageUserAction";
 
 export default function Login(props) {
   const dispatch = useDispatch();
-  const  {userLogin} = useSelector(state => state.ManageUserReducer)
-  console.log('userLogin', userLogin)
+  const { userLogin } = useSelector((state) => state.ManageUserReducer);
+  console.log("userLogin", userLogin);
   const formik = useFormik({
     initialValues: {
       taiKhoan: "",
@@ -47,7 +47,7 @@ export default function Login(props) {
                 type="true"
                 dangerouslySetInnerHTML={{
                   __html:
-                    "\n                                    .st0{fill:none;stroke:currentColor;stroke-width:20;stroke-linecap:round;stroke-miterlimit:3;}\n                                ",
+                    "\n       .st0{fill:none;stroke:currentColor;stroke-width:20;stroke-linecap:round;stroke-miterlimit:3;}\n                                ",
                 }}
               />
               <g transform="matrix( 1, 0, 0, 1, 0,0) ">
@@ -136,7 +136,7 @@ export default function Login(props) {
           <div className="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
             Don't have an account ?{" "}
             <NavLink
-              to="register "
+              to="/register"
               className="cursor-pointer text-indigo-600 hover:text-indigo-800"
               href="/#"
             >

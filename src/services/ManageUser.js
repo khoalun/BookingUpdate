@@ -14,6 +14,10 @@ export default class ManageUserService extends baseService {
     return this.post("/api/QuanLyNguoiDung/ThongTinTaiKhoan");
   };
 
+  getRegister = (formData) => {
+    return this.post("/api/QuanLyNguoiDung/DangKy", formData);
+  };
+
   getUserAdmin = () => {
     return this.get(`/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01`);
   };

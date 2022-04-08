@@ -63,6 +63,20 @@ export const getUserAdminAction = () => {
   };
 };
 
+export const registerAction = (formData) => {
+  return async (dispatch) => {
+    try {
+      console.log("asdasdasdadsad", formData);
+      let result = await manageUserService.getRegister(formData);
+      alert("Success adding User");
+      console.log("result", result.data.content);
+      history.goBack();
+    } catch (errors) {
+      console.log(errors.response?.data);
+    }
+  };
+};
+
 // export const registerUser = async(user,dispatch) => {
 //   dispatch(registerStart());
 //    try {

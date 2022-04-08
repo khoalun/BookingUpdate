@@ -35,6 +35,7 @@ const AddNew = () => {
           formData.append("File", values.hinhAnh, values.hinhAnh.name);
         }
       }
+      console.log("form", formData);
       // call api to send formData to backend handle
       dispatch(addFilmUploadImageAction(formData));
       //   console.log("formData", formData.get("File"));

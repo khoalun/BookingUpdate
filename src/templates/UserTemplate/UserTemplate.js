@@ -13,14 +13,13 @@ const UserTemplate = (props) => {
           <Fragment>
             <div className="lg:flex">
               <Component {...propsRoute} />
-              <div>
+              <div className="hidden lg:flex items-center justify-center flex-1 h-screen">
                 <img
                   src="./img/background.jpg"
                   alt="background"
                   className="w-full h-full"
                 />
               </div>
-              <div className="hidden lg:flex items-center justify-center bg-indigo-100 flex-1 h-screen"></div>
             </div>
           </Fragment>
         );

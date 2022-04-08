@@ -27,7 +27,7 @@ export const ManageUserReducer = (state = stateDefault, action) => {
       state.userInfor = action.userInfor;
       return { ...state };
     }
-
+ 
     case SET_USER_ADMIN: {
       state.userAdmin = action.userAdmin;
       return { ...state };
