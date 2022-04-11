@@ -77,6 +77,19 @@ export const registerAction = (formData) => {
   };
 };
 
+export const deleteUserAction = (taiKhoan) => {
+  return async (dispatch) => {
+    try {
+      let result = await manageUserService.deleteUser(taiKhoan);
+      alert("Success Delete User");
+      console.log("result", result.data.content);
+      dispatch(getUserAdminAction());
+    } catch (errors) {
+      console.log(errors.response?.data);
+    }
+  };
+};
+
 // export const registerUser = async(user,dispatch) => {
 //   dispatch(registerStart());
 //    try {

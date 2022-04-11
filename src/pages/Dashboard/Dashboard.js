@@ -1,7 +1,11 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import { Table } from "antd";
 import { useSelector, useDispatch } from "react-redux";
-import { getUserAdminAction } from "../../actions/ManageUserAction";
+import {
+  deleteUserAction,
+  getUserAdminAction,
+} from "../../actions/ManageUserAction";
+import { DeleteOutlined } from "@ant-design/icons";
 
 export default function Dashboard() {
   const columns = [
@@ -54,6 +58,35 @@ export default function Dashboard() {
       sorter: (a, b) => a.taiKhoan - b.taiKhoan,
       sortDirection: ["descend", "ascend"],
       width: "20%",
+    },
+    {
+      title: "Action",
+      dataIndex: "hanhDong",
+      render: (text, user) => {
+        return (
+          <Fragment key={user}>
+            <span
+              key={2}
+              className=" text-2xl"
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                if (
+                  window.confirm(
+                    "Are you sure you want to delete" + user.taiKhoan.toString()
+                  )
+                ) {
+                  //Call action
+                  dispatch(deleteUserAction(user.taiKhoan.toString()));
+                }
+              }}
+            >
+              <DeleteOutlined style={{ color: "red" }} />
+            </span>
+          </Fragment>
+        );
+      },
+      width: "20%",
+      sortDirection: ["descend", "ascend"],
     },
   ];
   const { userAdmin } = useSelector((state) => state.ManageUserReducer);

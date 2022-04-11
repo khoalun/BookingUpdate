@@ -21,6 +21,11 @@ export default class ManageUserService extends baseService {
   getUserAdmin = () => {
     return this.get(`/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01`);
   };
+  deleteUser = (taiKhoan) => {
+    return this.delete(
+      `/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`
+    );
+  };
 }
 
 export const manageUserService = new ManageUserService();

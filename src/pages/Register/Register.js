@@ -26,22 +26,22 @@ export default function Register(props) {
       console.log("values", values);
       // Create Object fomrdata => Đưa giá trị từ formik vào formData
       values.maNhom = GROUPID;
-      let formData = new FormData();
-      formData.append("taiKhoan", formik.values.taiKhoan);
-      formData.append("matKhau", formik.values.matKhau);
+      // let formData = new FormData();
+      // formData.append("taiKhoan", formik.values.taiKhoan);
+      // formData.append("matKhau", formik.values.matKhau);
 
-      formData.append("email", formik.values.email);
+      // formData.append("email", formik.values.email);
 
-      formData.append("soDt", formik.values.soDt);
+      // formData.append("soDt", formik.values.soDt);
 
-      formData.append("maNhom", formik.values.maNhom);
+      // formData.append("maNhom", formik.values.maNhom);
 
-      formData.append("hoTen", formik.values.hoTen);
+      // formData.append("hoTen", formik.values.hoTen);
 
-      console.log("11111", formData);
+      // console.log("11111", formData);
       // call api to send formData to backend handle
       dispatch(registerAction(values));
-      console.log("formData", formData);
+      // console.log("formData", formData);
     },
   });
   const onFormLayoutChange = ({ size }) => {

@@ -160,7 +160,12 @@ export default function Films() {
         size="large"
         onSearch={onSearch}
       />
-      <Table columns={columns} dataSource={data} onChange={onChange} />
+      <Table
+        columns={columns}
+        dataSource={data}
+        onChange={onChange}
+        rowKey={'maPhim'}
+      />
     </div>
   );
 }

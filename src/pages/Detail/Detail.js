@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "@tsamantanis/react-glassmorphism/dist/index.css";
 import { CustomCard } from "@tsamantanis/react-glassmorphism";
 import "../../assets/styles/circle.scss";
@@ -7,21 +7,33 @@ import { useSelector, useDispatch } from "react-redux";
 import { getDetailMovie } from "../../actions/ManageTheatreAction";
 import moment from "moment";
 import { Rate } from "antd";
+
 import "./Detail.css";
 import { NavLink } from "react-router-dom";
+
+import ModalPopup from "./ModalPopup";
+
 const { TabPane } = Tabs;
 export default function Detail(props) {
   const filmDetail = useSelector((state) => state.MovieListReducer.filmDetail);
+  const [openModal, setOpenModal] = useState(false);
   console.log({ filmDetail });
+  const handleOpen = () => {
+    setOpenModal(true);
+  };
+  const handleClose = () => {
+    setOpenModal(false);
+  };
   const dispatch = useDispatch();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-})
+  });
   useEffect(() => {
     let { id } = props.match.params;
     console.log("id", id);
     dispatch(getDetailMovie(id));
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -50,6 +62,7 @@ export default function Detail(props) {
                 alt="123"
                 style={{ width: "215px", height: "339px" }}
               />
+
               <div className="flex flex-col justify-center  ml-7">
                 <p className="text-sm text-gray-100	">
                   Day Release:
@@ -59,6 +72,29 @@ export default function Detail(props) {
                   {filmDetail.tenPhim}
                 </p>
                 <p className="text-sm text-gray-100	">{filmDetail.moTa}</p>
+                {/* <div className="modal-dialog modal-dialog-centered modal-lg">
+                  <div className="modal-content" style={{ background: "#000" }}>
+                    <div className="modal-body">
+                      <iframe
+                        title="trailer"
+                        width="100%"
+                        height="85%"
+                        src={filmDetail?.trailer}
+                        // src={src}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;"
+                        autoPlay
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                  </div>
+                </div> */}
+                <button onClick={handleOpen}>Open</button>
+                {openModal && (
+                  <div onClick={handleClose}>
+                    <ModalPopup film={filmDetail} />
+                  </div>
+                )}
               </div>
             </div>
           </div>
