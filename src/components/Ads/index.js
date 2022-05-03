@@ -14,13 +14,13 @@ function Ads() {
       <div className="grid grid-cols-10 gap-4 text-white">
         <div className="col-span-4 col-start-3 text-left ">
           <p className="text-2xl font-bold" style={{ lineHeight: "1rem" }}>
-            Ứng dụng tiện lợi dành cho
+          Convenient app for
           </p>
-          <p className="text-2xl font-bold">người yêu điện ảnh</p>
+          <p className="text-2xl font-bold">movie lover</p>
           <br />
           <p className="text-lg font-normal	">
-            Không chỉ đặt vé, bạn còn có thể bình luận phim, chấm điểm <br />
-            rạp và đổi quà hấp dẫn.
+          Not only booking tickets, you can also comment on movies and score <br />
+          theaters and exchange attractive gifts.
           </p>
           <button
             className="btnDownload"
@@ -33,11 +33,11 @@ function Ads() {
               fontWeight: "700px",
             }}
           >
-            App miễn phí - Tải về ngay!
+            Free App - Download Now!
           </button>
           <br />
           <p className="text-base	mt-2">
-            TIX có hai phiên bản <a href="#!">iOS</a> &amp;
+          TIX has two versions <a href="#!">iOS</a> &amp;
             <a href="#!"> Android</a>
           </p>
         </div>

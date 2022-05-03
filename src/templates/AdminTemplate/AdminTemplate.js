@@ -59,7 +59,7 @@ const AdminTemplate = (props) => {
             className="text-blue-800"
           >
             SIGN OUT
-          </button>{" "}
+          </button>
         </Fragment>
       ) : (
         ""
@@ -74,12 +74,12 @@ const AdminTemplate = (props) => {
         //props.location,props.history,props.match
 
         if (!localStorage.getItem(USER_LOGIN)) {
-          alert("Bạn không có quyền truy cập vào trang này !");
+          alert("You don't have right to access in this wepage!");
           return <Redirect to="/" />;
         }
 
         if (userLogin.maLoaiNguoiDung !== "QuanTri") {
-          alert("Bạn không có quyền truy cập vào trang này !");
+          alert("You don't have right to access this webpage !");
           return <Redirect to="/" />;
         }
         return (

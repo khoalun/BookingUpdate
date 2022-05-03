@@ -2,13 +2,13 @@ const newsDataRow = [
   {
     id: 1,
     day: " October 26 2021",
-    name: "Adidas Prophere",
+    name: "Blake Lively Directing Bryan Lee O'Malley Adaptation Seconds",
     alias: "adidas-prophere",
     price: 350,
     description:
-      "The adidas Primeknit upper wraps the foot with a supportive fit that enhances movement.\r\n\r\n",
+      "TBlake Lively is more known for acting, though she has directed a music video...\r\n\r\n",
     shortDescription:
-      "The midsole contains 20% more Boost for an amplified Boost feeling.\r\n\r\n",
+      " Blake Lively Directing Bryan Lee O'Malley Adaptation Seconds \r\n\r\n",
     quantity: 995,
     like: 24,
     comment: 48,
@@ -18,14 +18,14 @@ const newsDataRow = [
 
   {
     id: 2,
-    name: "Adidas Prophere Black White",
+    name: "Blake Lively Directing Bryan Lee O'Malley Adaptation Seconds",
     day: " October 26 2021",
     alias: "adidas-prophere-black-white",
     price: 450,
     description:
-      "The adidas Primeknit upper wraps the foot with a supportive fit that enhances movement.\r\n\r\n",
+      " Though she's been working solidly in TV, it has been 12 years since Lexi...\r\n\r\n",
     shortDescription:
-      "The midsole contains 20% more Boost for an amplified Boost feeling.\r\n\r\n",
+      "Lexi Alexander Casts Désiré Mia And More In Martial Arts Movie \r\n\r\n",
     quantity: 990,
     like: 23,
     comment: 84,

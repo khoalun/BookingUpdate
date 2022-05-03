@@ -23,7 +23,7 @@ const newsDataCol = [
     alias: "adidas-prophere-black-white",
     price: 450,
     description:
-      "Bán Đảo Peninsula là bom tấn xác sống không thể bỏ lỡ!.\r\n\r\n",
+      "[Review] Peninsula Peninsula is a zombie blockbuster not to be missed!.\r\n\r\n",
     shortDescription:
       "The midsole contains 20% more Boost for an amplified Boost feeling.\r\n\r\n",
     quantity: 990,
@@ -41,7 +41,7 @@ const newsDataCol = [
     like: 43,
     comment: 69,
     description:
-      "[Review] Gái Già Lắm Chiêu 3 - Cuộc chiến mẹ chồng - nàng dâu của giới siêu giàu xứ Huế\r\n\r\n",
+      "[Review] Very Old Girl Chieu 3 - The battle between mother-in-law - daughter-in-law of the super rich in Hue\r\n\r\n",
     shortDescription:
       "The midsole contains 20% more Boost for an amplified Boost feeling.\r\n\r\n",
     quantity: 415,
@@ -56,7 +56,7 @@ const newsDataCol = [
     price: 375,
     like: 43,
     comment: 69,
-    description: "Diễn viên đặc biệt của Bằng Chứng Vô Hình.\r\n\r\n",
+    description: "Special cast of Invisible Evidence.\r\n\r\n",
     shortDescription:
       "The midsole contains 20% more Boost for an amplified Boost feeling.\r\n\r\n",
     quantity: 415,
@@ -72,7 +72,7 @@ const newsDataCol = [
     like: 43,
     comment: 69,
     description:
-      "[Review] Bí Mật Của Gió - Câu chuyện “tình người duyên ma” đầy nước mắt.\r\n\r\n",
+      "[Review] The Secret of the Wind - The story of love of people with predestined ghosts is full of tears.\r\n\r\n",
     shortDescription:
       "The midsole contains 20% more Boost for an amplified Boost feeling.\r\n\r\n",
     quantity: 415,

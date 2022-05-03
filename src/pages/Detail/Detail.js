@@ -199,25 +199,25 @@ export default function Detail(props) {
             <TabPane tab="Information" key="2">
               <div className="grid grid-cols-9 mx-auto my-auto p-8">
                 <div className="col-span-2 col-start-2 titleInfo">
-                  <div className="titleInfo">Ngày công chiếu</div>
-                  <div className="titleInfo">Đạo diễn</div>
-                  <div className="titleInfo">Diễn viên</div>
-                  <div className="titleInfo">Thể loại</div>
-                  <div className="titleInfo">Định dạng</div>
-                  <div className="titleInfo">Ngôn Ngữ</div>
+                  <div className="titleInfo">Release date</div>
+                  <div className="titleInfo">Director</div>
+                  <div className="titleInfo">Actor</div>
+                  <div className="titleInfo">Category</div>
+                  <div className="titleInfo">Format</div>
+                  <div className="titleInfo">Language</div>
                 </div>
                 <div className="col-span-2  gap-4">
                   <div className="titleInfo">
                     {moment(filmDetail.ngayKhoiChieu).format("hh.mm A")}
                   </div>
-                  <div className="titleInfo">Đạo diễn</div>
-                  <div className="titleInfo">Diễn viên</div>
-                  <div className="titleInfo">Thể loại</div>
-                  <div className="titleInfo">Định dạng</div>
-                  <div className="titleInfo">Ngôn Ngữ</div>
+                  <div className="titleInfo">Michael Bay</div>
+                  <div className="titleInfo">David Machela</div>
+                  <div className="titleInfo">Drama , Science</div>
+                  <div className="titleInfo">3D</div>
+                  <div className="titleInfo">English</div>
                 </div>
                 <div className="col-span-4">
-                  <div className="titleInfo">Nội dung</div>
+                  <div className="titleInfo">Content</div>
                   <div>{filmDetail.moTa}</div>
                 </div>
               </div>
